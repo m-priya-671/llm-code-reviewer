@@ -99,14 +99,17 @@ export const reviewAPI = {
 
 export const streamReview = (data, callbacks) => {
   const token = localStorage.getItem('accessToken');
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
 
   // Use fetch for SSE POST requests (EventSource only supports GET)
   fetch(`${API_BASE_URL}/review/stream`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
+    headers,
     body: JSON.stringify(data),
   }).then(async (response) => {
     if (!response.ok) {
