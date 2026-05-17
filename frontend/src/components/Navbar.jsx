@@ -33,6 +33,18 @@ export default function Navbar({ remainingReviews }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Toggle body class when mobile menu is open
+  useEffect(() => {
+    if (showMobileMenu) {
+      document.body.classList.add('mobile-menu-open');
+    } else {
+      document.body.classList.remove('mobile-menu-open');
+    }
+    return () => {
+      document.body.classList.remove('mobile-menu-open');
+    };
+  }, [showMobileMenu]);
+
   const handleTheme = (newTheme) => {
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
@@ -160,7 +172,7 @@ export default function Navbar({ remainingReviews }) {
           ) : (
             <div className="flex items-center gap-2 h-full">
               <div 
-                className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/5 border border-orange-500/10 text-[10px] font-bold uppercase tracking-widest text-orange-500/80 cursor-help"
+                className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/5 border border-orange-500/10 text-[10px] font-bold uppercase tracking-widest text-orange-500/80 cursor-pointer"
                 title="Guest Mode: Progress and review history will not be saved."
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
@@ -217,7 +229,7 @@ export default function Navbar({ remainingReviews }) {
             <div className="h-px bg-[var(--border)] my-1" />
             
             <div 
-              className="flex items-center justify-between text-xs font-medium text-[var(--text-secondary)] cursor-help"
+              className="flex items-center justify-between text-xs font-medium text-[var(--text-secondary)] cursor-pointer"
               title={!isAuthenticated ? "Guest Mode: Progress and review history will not be saved." : undefined}
             >
               <span>Account Type</span>

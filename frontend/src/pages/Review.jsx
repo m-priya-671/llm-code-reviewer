@@ -428,7 +428,7 @@ export default function Review() {
 
         {/* Guest Welcome Banner */}
         {showWelcome && (
-          <div className="bg-[var(--bg-surface-2)] border-l-4 border-orange-500 p-3 text-sm text-[var(--text-secondary)] flex justify-between items-center animate-slide-down">
+          <div className="bg-[var(--bg-surface-2)] border-l-4 border-orange-500 p-3 text-sm text-[var(--text-secondary)] flex justify-between items-center animate-slide-down guest-prompt-banner">
             <span>
               👋 Try it free — no account needed. 
               <Link to="/register" className="text-orange-500 ml-1 font-bold">Sign in</Link> to save history and export reports.
@@ -439,7 +439,7 @@ export default function Review() {
 
         {/* Guest Review Limit Prompt Banner */}
         {!user && guestCount >= 3 && (
-          <div className="animate-slide-in-left mx-4 mt-3 bg-[var(--bg-surface-2)] border border-orange-500 rounded-lg p-3 flex items-center justify-between animate-slide-down">
+          <div className="animate-slide-in-left mx-4 mt-3 bg-[var(--bg-surface-2)] border border-orange-500 rounded-lg p-3 flex items-center justify-between animate-slide-down guest-prompt-banner">
             <span className="text-sm text-[var(--text-secondary)]">
               You've used <span className="font-bold text-[var(--text-primary)]">{guestCount}</span> free reviews. 
               <Link to="/login" className="text-orange-500 ml-1 font-bold">Sign in for unlimited reviews</Link> and to save your history.

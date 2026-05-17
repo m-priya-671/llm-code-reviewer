@@ -392,3 +392,10 @@
   transform-origin: bottom left;
 }
 
+/* Hide page footer buttons and banners when mobile menu overlay is active */
+body.mobile-menu-open .page-footer,
+body.mobile-menu-open .guest-prompt-banner {
+  display: none !important;
+}
+
+

@@ -263,7 +263,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="pt-12 pb-16 px-6">
+      <section className="pt-12 pb-16 px-6 page-footer">
         <div className="max-w-5xl mx-auto">
           <div className="glass-card p-12 text-center relative overflow-hidden group border-orange-500/20">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.03] via-transparent to-orange-500/[0.08]" />
