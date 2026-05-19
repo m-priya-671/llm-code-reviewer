@@ -162,13 +162,13 @@
 
 ## 🖼️ Screenshots
 
-![CodeReviewer Dashboard](https://github.com/rupeshkumar006/llm-code-reviewer/assets/screenshots/dashboard.png)
+![CodeReviewer Dashboard](assets/Screenshots/dashboard.png)
 
-![CodeReviewer Code Review Interface](https://github.com/rupeshkumar006/llm-code-reviewer/assets/screenshots/review.png)
+![CodeReviewer Landing Page](assets/Screenshots/landing.png)
 
-![CodeReviewer Landing Page](https://github.com/rupeshkumar006/llm-code-reviewer/assets/screenshots/landing.png)
+![CodeReviewer Home Page](assets/Screenshots/home.png)
 
-![CodeReviewer Home Page](https://github.com/rupeshkumar006/llm-code-reviewer/assets/screenshots/home.png)
+![CodeReviewer Code Review Interface](assets/Screenshots/review.png)
 
 ---
 
@@ -179,6 +179,8 @@ llm-code-reviewer/
 ├── .github/workflows/
 │   ├── ci.yml                      # Build, test, cache dependencies pipeline
 │   └── ci-cd.yml                   # Docker validation, artifact upload
+├── assets/
+│   └── Screenshots/                # Application screenshots
 ├── backend/
 │   ├── Dockerfile                  # Multi-stage JDK 17 image
 │   ├── pom.xml                     # Maven dependencies (34 Spring Boot modules)
