@@ -162,13 +162,13 @@
 
 ## 🖼️ Screenshots
 
-![CodeReviewer Dashboard](assets/Screenshots/dashboard.png)
+![CodeReviewer Dashboard](Assests/Screenshots/dashboard.png)
 
-![CodeReviewer Landing Page](assets/Screenshots/landing.png)
+![CodeReviewer Landing Page](Assests/Screenshots/landing.png)
 
-![CodeReviewer Home Page](assets/Screenshots/home.png)
+![CodeReviewer Home Page](Assests/Screenshots/home.png)
 
-![CodeReviewer Code Review Interface](assets/Screenshots/review.png)
+![CodeReviewer Code Review Interface](Assests/Screenshots/review.png)
 
 ---
 
@@ -179,7 +179,7 @@ llm-code-reviewer/
 ├── .github/workflows/
 │   ├── ci.yml                      # Build, test, cache dependencies pipeline
 │   └── ci-cd.yml                   # Docker validation, artifact upload
-├── assets/
+├── Assests/
 │   └── Screenshots/                # Application screenshots
 ├── backend/
 │   ├── Dockerfile                  # Multi-stage JDK 17 image
