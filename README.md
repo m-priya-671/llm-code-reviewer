@@ -4,6 +4,8 @@
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-green)
 ![React](https://img.shields.io/badge/React-19-blue)
+![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-blue)
+![Docker](https://img.shields.io/badge/Docker-Compose-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-00758F)
 ![Redis](https://img.shields.io/badge/Redis-7-DC382D)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
@@ -177,8 +179,8 @@ llm-code-reviewer/
 
 | Name | Role | GitHub |
 |---|---|---|
-| Rupesh Kumar | Full-Stack Developer | Data Analytics | [@rupeshkumar006](https://github.com/rupeshkumar006) |
-| Priya Dharshini M | Full-Stack Developer | Design | [@m-priya-671](https://github.com/m-priya-671) |
+| Rupesh Kumar | Full-Stack Developer, Data Analytics | [@rupeshkumar006](https://github.com/rupeshkumar006) |
+| Priya Dharshini M | Full-Stack Developer, Design | [@m-priya-671](https://github.com/m-priya-671) |
 
 ---
 
