@@ -131,7 +131,64 @@ public class AIService {
     // ─────────────────────────────────────────────────────────────────────────
 
     private String callGeminiApi(String requestBodyJson) throws Exception {
-        String url = GEMINI_BASE + String.format(GENERATE_PATH, model, apiKey);
+        List<String> modelsToTry = new ArrayList<>();
+        modelsToTry.add(this.model);
+        
+        // If the configured model is gemini-2.5-flash, add gemini-1.5-flash as a fallback.
+        if ("gemini-2.5-flash".equals(this.model)) {
+            modelsToTry.add("gemini-1.5-flash");
+        } else if (!"gemini-1.5-flash".equals(this.model)) {
+            // Also add gemini-1.5-flash as a general fallback if another custom model was chosen
+            modelsToTry.add("gemini-1.5-flash");
+        }
+
+        Exception lastException = null;
+        
+        for (String targetModel : modelsToTry) {
+            int maxAttempts = 3;
+            long backoffMs = 1000;
+            
+            for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+                try {
+                    log.info("Attempting Gemini API call with model: {} (attempt {}/{})", targetModel, attempt, maxAttempts);
+                    return executeApiCall(requestBodyJson, targetModel);
+                } catch (Exception e) {
+                    lastException = e;
+                    log.warn("Gemini API call failed for model {} on attempt {}/{}: {}", 
+                             targetModel, attempt, maxAttempts, e.getMessage());
+                    
+                    // If it's a client error (e.g. 400 Bad Request, 401 Unauthorized, 403 Forbidden), 
+                    // or a safety block, retrying won't help. Propagate the error immediately.
+                    if (e.getMessage() != null && (
+                            e.getMessage().contains("HTTP 400") || 
+                            e.getMessage().contains("HTTP 401") || 
+                            e.getMessage().contains("HTTP 403") ||
+                            e.getMessage().contains("SAFETY")
+                       )) {
+                        throw e;
+                    }
+
+                    if (attempt < maxAttempts) {
+                        try {
+                            Thread.sleep(backoffMs * attempt);
+                        } catch (InterruptedException ie) {
+                            Thread.currentThread().interrupt();
+                            throw ie;
+                        }
+                    }
+                }
+            }
+            log.warn("Model {} exhausted all attempts. Trying next fallback if available.", targetModel);
+        }
+
+        if (lastException != null) {
+            throw lastException;
+        }
+        throw new RuntimeException("Unknown Gemini API error");
+    }
+
+    private String executeApiCall(String requestBodyJson, String targetModel) throws Exception {
+        String url = GEMINI_BASE + String.format(GENERATE_PATH, targetModel, apiKey);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))

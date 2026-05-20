@@ -9,7 +9,7 @@ import ExportButton from '../components/ExportButton';
 import ExampleCodeButton from '../components/ExampleCodeButton';
 import { reviewAPI, streamReview } from '../services/api';
 import { Play, PanelLeftClose, PanelLeft, GitBranch, X, HelpCircle, Lock } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const DEFAULT_CODE = `// Paste your code here or drop a file
