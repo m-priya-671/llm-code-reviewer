@@ -162,13 +162,13 @@
 
 ## 🖼️ Screenshots
 
-![CodeReviewer Dashboard](Assests/Screenshots/dashboard.png)
+![CodeReviewer Analytics Dashboard](Assests/Screenshots/Analytics.png)
 
-![CodeReviewer Landing Page](Assests/Screenshots/landing.png)
+![CodeReviewer Sign In Page](Assests/Screenshots/Signin.png)
 
-![CodeReviewer Home Page](Assests/Screenshots/home.png)
+![CodeReviewer Home Page](Assests/Screenshots/Home.png)
 
-![CodeReviewer Code Review Interface](Assests/Screenshots/review.png)
+![CodeReviewer Code Review Interface](Assests/Screenshots/Review.png)
 
 ---
 
@@ -181,6 +181,10 @@ llm-code-reviewer/
 │   └── ci-cd.yml                   # Docker validation, artifact upload
 ├── Assests/
 │   └── Screenshots/                # Application screenshots
+│       ├── Analytics.png           # Dashboard analytics view
+│       ├── Signin.png              # Sign in / Landing page
+│       ├── Home.png                # Home page
+│       └── Review.png              # Code review interface
 ├── backend/
 │   ├── Dockerfile                  # Multi-stage JDK 17 image
 │   ├── pom.xml                     # Maven dependencies (34 Spring Boot modules)
